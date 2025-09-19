@@ -1,6 +1,8 @@
 import { User } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-glass-dark/95 backdrop-blur-glass">
       <div className="flex items-center justify-between px-4 py-3 safe-area-inset-top">
@@ -14,9 +16,12 @@ const Header = () => {
         </div>
         
         <div className="flex items-center">
-          <div className="w-9 h-9 rounded-full bg-gradient-primary flex items-center justify-center shadow-glow-blue animate-glow-pulse cursor-pointer">
+          <button 
+            onClick={() => navigate('/profile')}
+            className="w-9 h-9 rounded-full bg-gradient-primary flex items-center justify-center shadow-glow-blue animate-glow-pulse cursor-pointer hover:shadow-glow-blue/80 transition-all duration-300"
+          >
             <User size={18} className="text-primary-foreground" />
-          </div>
+          </button>
         </div>
       </div>
     </header>

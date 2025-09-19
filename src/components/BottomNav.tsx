@@ -5,10 +5,15 @@ const BottomNav = () => {
   const navigate = useNavigate();
   const location = useLocation();
   
+  // Hide bottom nav on chat page
+  if (location.pathname === "/chat") {
+    return null;
+  }
+  
   const navItems = [
     { icon: Home, path: "/", active: location.pathname === "/" },
     { icon: Search, path: "/search", active: location.pathname === "/search" },
-    { icon: Video, path: "/videos", active: location.pathname === "/videos" },
+    { icon: Video, path: "/reels", active: location.pathname === "/reels" },
     { icon: BarChart3, path: "/analytics", active: location.pathname === "/analytics" },
     { icon: MessageCircle, path: "/chat", active: location.pathname === "/chat" },
   ];
