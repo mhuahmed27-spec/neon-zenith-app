@@ -61,7 +61,7 @@ const MotivationalQuotes = () => {
                     : 'opacity-0 transform translate-y-8'
                 }`}
               >
-                <blockquote className={`text-2xl md:text-4xl font-bold mb-6 bg-gradient-to-r ${quote.gradient} bg-clip-text text-transparent leading-relaxed`}>
+                <blockquote className={`text-2xl font-bold mb-6 bg-gradient-to-r ${quote.gradient} bg-clip-text text-transparent leading-relaxed`}>
                   "{quote.text}"
                 </blockquote>
                 <cite className="text-lg text-muted-foreground font-medium">

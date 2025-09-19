@@ -77,7 +77,7 @@ const FeaturesGrid = () => {
         </p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 gap-6 max-w-sm mx-auto">
         {features.map((feature, index) => {
           const Icon = feature.icon;
           return (
