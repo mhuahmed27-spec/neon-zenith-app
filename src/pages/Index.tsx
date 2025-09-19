@@ -13,7 +13,7 @@ const Index = () => {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Header />
       
-      <main className="pt-20 pb-24">
+      <main className="pt-16 pb-20">
         <HeroSection />
         <AdBanner />
         <CategoryGrid />

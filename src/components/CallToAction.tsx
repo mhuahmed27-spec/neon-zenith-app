@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Download, ArrowRight, Zap, Star } from "lucide-react";
+import { ArrowRight, Zap, Star } from "lucide-react";
 
 const CallToAction = () => {
   return (
@@ -24,34 +24,25 @@ const CallToAction = () => {
           </div>
           
           {/* Main CTA Content */}
-          <h2 className="text-4xl md:text-6xl font-black text-foreground mb-6">
-            Download Now –{' '}
+          <h2 className="text-2xl font-black text-foreground mb-4">
+            Ready to{' '}
             <span className="bg-gradient-secondary bg-clip-text text-transparent">
-              Begin Your Transformation
+              Transform Your Life?
             </span>
           </h2>
           
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-            Join thousands who've already unlocked their potential. The future of success is waiting for you.
+          <p className="text-base text-muted-foreground mb-6 max-w-sm mx-auto leading-relaxed">
+            Start your journey to success with personalized AI guidance and powerful tools.
           </p>
           
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-8">
+          {/* Action Button */}
+          <div className="flex items-center justify-center mb-6">
             <Button 
               size="lg" 
-              className="bg-gradient-primary hover:shadow-glow-blue text-xl px-10 py-6 rounded-2xl font-bold transition-all duration-300 animate-glow-pulse group w-full sm:w-auto"
+              className="bg-gradient-primary hover:shadow-glow-blue text-lg px-8 py-4 rounded-2xl font-bold transition-all duration-300 animate-glow-pulse group w-full max-w-xs"
             >
-              <Download className="mr-3 group-hover:animate-bounce" size={24} />
-              Download Free
-              <ArrowRight className="ml-3 group-hover:translate-x-1 transition-transform" size={20} />
-            </Button>
-            
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="border-2 border-neon-purple text-neon-purple hover:bg-neon-purple/10 hover:shadow-glow-purple text-xl px-10 py-6 rounded-2xl font-bold transition-all duration-300 w-full sm:w-auto"
-            >
-              Watch Demo
+              Get Started Now
+              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
             </Button>
           </div>
           

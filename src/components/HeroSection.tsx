@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative h-80 flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -21,27 +21,23 @@ const HeroSection = () => {
       </div>
       
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        <h1 className="text-5xl md:text-7xl font-black mb-6 text-foreground animate-slide-up">
-          The Future of{' '}
+      <div className="relative z-10 text-center px-6 max-w-sm mx-auto">
+        <h1 className="text-3xl font-black mb-4 text-foreground animate-slide-up">
+          Welcome to{' '}
           <span className="bg-gradient-primary bg-clip-text text-transparent animate-neon-flicker">
-            Success
+            WiseX
           </span>
-          {' '}in One App
         </h1>
         
-        <p className="text-xl md:text-2xl text-muted-foreground mb-8 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-          Transform your life with AI-powered mentorship, trading tools, and futuristic business solutions.
+        <p className="text-lg text-muted-foreground mb-6 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+          Your AI-powered success companion
         </p>
         
-        <Button 
-          size="lg" 
-          className="bg-gradient-primary hover:shadow-glow-blue text-xl px-8 py-4 rounded-2xl font-bold transition-all duration-300 animate-glow-pulse group"
-          style={{ animationDelay: '0.6s' }}
-        >
-          Begin Your Transformation
-          <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-        </Button>
+        <div className="flex items-center justify-center space-x-2 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+          <div className="w-2 h-2 bg-neon-blue rounded-full animate-neon-flicker" />
+          <div className="w-2 h-2 bg-neon-purple rounded-full animate-neon-flicker" style={{ animationDelay: '0.2s' }} />
+          <div className="w-2 h-2 bg-neon-gold rounded-full animate-neon-flicker" style={{ animationDelay: '0.4s' }} />
+        </div>
       </div>
     </section>
   );
