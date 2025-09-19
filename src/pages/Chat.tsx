@@ -38,13 +38,13 @@ const Chat = () => {
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       <Header />
       
-      <main className="flex-1 pt-16 pb-20 px-6 flex flex-col">
+      <main className="flex-1 pt-16 pb-24 px-6 flex flex-col">
         <div className="flex items-center mb-6">
           <MessageCircle className="text-neon-purple mr-3" size={28} />
           <h1 className="text-3xl font-bold">AI Mentor</h1>
         </div>
         
-        <div className="flex-1 space-y-4 mb-6">
+        <div className="flex-1 space-y-4 overflow-y-auto">
           {messages.map((msg, index) => (
             <div
               key={index}
@@ -79,7 +79,10 @@ const Chat = () => {
             </div>
           ))}
         </div>
-        
+      </main>
+      
+      {/* Fixed chat input at bottom */}
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-background/95 backdrop-blur-sm border-t border-glass-border">
         <div className="bg-glass-dark/50 border border-glass-border rounded-2xl p-3">
           <div className="flex items-center space-x-2">
             <input
@@ -97,9 +100,7 @@ const Chat = () => {
             </button>
           </div>
         </div>
-      </main>
-      
-      <BottomNav />
+      </div>
     </div>
   );
 };
