@@ -1,8 +1,40 @@
 import { User, Settings, Edit3, Award, Calendar, Target, LogOut } from "lucide-react";
 import Header from "@/components/Header";
 import BottomNav from "@/components/BottomNav";
+import { useAuth } from "@/hooks/useAuth";
+import { useToast } from "@/hooks/use-toast";
 
 const Profile = () => {
+  const { user, signOut } = useAuth();
+  const { toast } = useToast();
+
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+      toast({
+        title: "Signed out successfully",
+        description: "You have been logged out of your account.",
+      });
+    } catch (error) {
+      toast({
+        title: "Error signing out",
+        description: "Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const handleMenuAction = (action: string) => {
+    if (action === "logout") {
+      handleSignOut();
+    } else {
+      toast({
+        title: "Feature coming soon",
+        description: `${action} functionality will be available soon.`,
+      });
+    }
+  };
+
   const stats = [
     { label: "Workouts", value: "156", icon: Target },
     { label: "Streak", value: "12", icon: Award },
@@ -33,8 +65,10 @@ const Profile = () => {
             </button>
           </div>
           
-          <h1 className="text-2xl font-bold text-foreground mb-2">Alex Johnson</h1>
-          <p className="text-muted-foreground">Fitness Enthusiast & Trader</p>
+          <h1 className="text-2xl font-bold text-foreground mb-2">
+            {user?.user_metadata?.display_name || "User"}
+          </h1>
+          <p className="text-muted-foreground break-all">{user?.email}</p>
           
           {/* Stats */}
           <div className="grid grid-cols-3 gap-4 mt-6">
@@ -61,6 +95,7 @@ const Profile = () => {
             return (
               <button
                 key={index}
+                onClick={() => handleMenuAction(item.action)}
                 className={`w-full bg-glass-dark/50 border border-glass-border rounded-2xl p-4 flex items-center justify-between hover:bg-glass-dark/70 transition-all duration-300 ${
                   item.danger ? 'hover:border-red-500/30' : ''
                 }`}
@@ -89,11 +124,16 @@ const Profile = () => {
           <div className="space-y-3 text-sm">
             <div className="flex justify-between">
               <span className="text-muted-foreground">Email</span>
-              <span className="text-foreground">alex@example.com</span>
+              <span className="text-foreground break-all">{user?.email}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-muted-foreground">Member Since</span>
-              <span className="text-foreground">January 2024</span>
+              <span className="text-foreground">
+                {user?.created_at ? new Date(user.created_at).toLocaleDateString('en-US', { 
+                  year: 'numeric', 
+                  month: 'long' 
+                }) : 'Recently'}
+              </span>
             </div>
             <div className="flex justify-between">
               <span className="text-muted-foreground">Plan</span>
