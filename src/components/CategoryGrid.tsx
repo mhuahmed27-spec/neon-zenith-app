@@ -37,7 +37,7 @@ const CategoryGrid = () => {
     },
     { 
       icon: Camera, 
-      title: "Lifestyle & Media", 
+      title: "Lifestyle & Fitness", 
       description: "Creative excellence",
       gradient: "from-neon-blue to-neon-purple"
     },
