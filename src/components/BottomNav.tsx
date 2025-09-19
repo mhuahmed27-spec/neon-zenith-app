@@ -1,12 +1,16 @@
-import { Home, Search, BarChart3, Settings, Video } from "lucide-react";
+import { Home, Search, BarChart3, MessageCircle, Video } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const BottomNav = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  
   const navItems = [
-    { icon: Home, active: true },
-    { icon: Search, active: false },
-    { icon: Video, active: false },
-    { icon: BarChart3, active: false },
-    { icon: Settings, active: false },
+    { icon: Home, path: "/", active: location.pathname === "/" },
+    { icon: Search, path: "/search", active: location.pathname === "/search" },
+    { icon: Video, path: "/videos", active: location.pathname === "/videos" },
+    { icon: BarChart3, path: "/analytics", active: location.pathname === "/analytics" },
+    { icon: MessageCircle, path: "/chat", active: location.pathname === "/chat" },
   ];
 
   return (
@@ -17,6 +21,7 @@ const BottomNav = () => {
           return (
             <button
               key={index}
+              onClick={() => navigate(item.path)}
               className={`flex items-center justify-center p-3 rounded-full transition-all duration-300 ${
                 item.active
                   ? "bg-gradient-primary shadow-glow-blue text-primary-foreground"
